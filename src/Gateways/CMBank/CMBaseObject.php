@@ -90,8 +90,8 @@ abstract class CMBaseObject extends BaseObject
                 case 'SHA-256':
                     $signStr .= '&' . $this->merKey;
                     $signStr = StrUtil::characet($signStr, 'UTF-8');
-                    $sign    = bin2hex(hash('sha256', $signStr));
-                    //$sign = hash('sha256', $signStr);
+                    //$sign    = bin2hex(hash('sha256', $signStr));
+                    $sign = hash('sha256', $signStr);
                     break;
                 default:
                     throw new GatewayException(sprintf('[%s] sign type not support', $this->signType), Payment::PARAMS_ERR);
